@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--  对象绑定  -->
+    <div v-bind:class="{mydiv1:flag,mydiv2:flag2}">{{message}}</div>
+    <div v-bind:class="classObject">{{message}}</div>
+    <!-- 绑定计算属性（常用）   -->
+    <div v-bind:class="classComputed">{{message}}</div>
+
+    <br>
+
+
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello world',
+            flag: true,
+            flag2: true,
+            classObject:{
+                mydiv1: true,
+                mydiv2: true
+            }
+        },
+        computed:{
+            // 计算属性返回一个对象用作class
+            classComputed(){
+                return {
+                    mydiv1: this.flag,
+                    mydiv2: this.flag2
+                }
+            }
+        }
+    })
+</script>
+<style>
+    .mydiv1{
+        color: red;
+    }
+    .mydiv2{
+        font-size: 30px;
+    }
+</style>
+</body>
+</html>

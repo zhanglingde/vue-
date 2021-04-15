@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <input type="text" v-model="message">
+    <div>{{message}}</div>
+    <hr>
+    <textarea v-model='textarea' cols="30" rows="10"></textarea>
+    <p style="white-space: pre-line;">{{textarea}}</p>
+    <hr>
+
+    <!-- 复选框true/false   -->
+    <input type="checkbox" v-model="isRead">
+    <div>{{isRead}}</div>
+    <hr>
+    <!-- 复选   -->
+    <input type="checkbox" value="足球" v-model="favorites">足球</input>
+    <input type="checkbox" value="篮球" v-model="favorites">篮球</input>
+    <input type="checkbox" value="乒乓球" v-model="favorites">乒乓球</input>
+    <div>{{favorites}}</div>
+    <hr>
+
+
+
+    <!-- 单选框   -->
+    性别：
+    <input type="radio" value="男" v-model="gender">男
+    <input type="radio" value="女" v-model="gender">女
+    <div>{{gender}}</div>
+    <hr>
+
+    <!-- 下拉框   -->
+    学历:
+    <select v-model="edu">
+        <option value="小学">小学</option>
+        <option value="初中">初中</option>
+        <option value="高中">高中</option>
+    </select>
+    <div>{{edu}}</div>
+    <hr>
+
+    <select v-model="favorites" multiple>
+        <option v-for="(f,index) in fs" v-bind:key="index" v-bind:value="f">{{f}}</option>
+    </select>
+    <hr>
+
+    <!--选中为yes，未选中为no-->
+    <input type="checkbox" true-value="yes" false-value="no" v-model="toggle">
+    <div>{{toggle}}</div>
+    <hr>
+
+
+
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: '',
+            textarea: '',
+            isRead: false,
+            favorites: [],
+            gender: '',
+            edu:'',
+            fs:[
+                '篮球',
+                '足球',
+                '羽毛球'
+            ],
+            toggle:''
+
+        },
+
+    })
+</script>
+</body>
+</html>

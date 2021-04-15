@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <!-- v-if指令为false时不执行   -->
+    <p v-if="flag">现在你看到我了</p>
+
+    <!-- v-show指令是使用css的display不显示   -->
+    <p v-show="flag">现在你看到我了</p>
+
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            flag: true
+        }
+    })
+</script>
+</body>
+</html>

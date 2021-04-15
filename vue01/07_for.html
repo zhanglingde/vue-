@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <!-- 数组遍历   -->
+    <table border="1px" cellspacing="0px">
+        <tr v-for="(book,index) in books" v-bind:key="index">
+            <td>{{parent}}</td>
+            <td>{{index}}</td>
+            <td>{{book.name}}</td>
+            <td>{{book.author}}</td>
+        </tr>
+    </table>
+
+    <!-- 遍历对象，参数分别是：对象值，属性名，索引    -->
+    <div v-for="(value,name,index) in user" v-bind:key="index">
+        {{index}} -- {{name}} -- {{value}}
+    </div>
+
+
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            parent: '四大名著',
+            books: [
+                {
+                    name: '三国演义',
+                    author: '罗贯中'
+                }, {
+                    name: '红楼梦',
+                    author: '曹雪芹'
+                }, {
+                    name: '西游记',
+                    author: '吴承恩'
+                }, {
+                    name: '水浒传',
+                    author: '施耐庵'
+                }
+            ],
+            user:{
+                name:'ling',
+                age: 25
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- v-bind可以绑定标签中的属性，此处绑定div中的title属性 -->
+    <div id="app" v-bind:title="title">
+        {{ message }}
+    </div>
+
+    <script>
+        // 创建一个Vue应用,该vue应用 挂在到一个DOM元素上（#app dom元素）,可以通过控制台响应式更改数据（变量）
+        var app = new Vue({
+            el: '#app',     // 绑定dom元素
+            data: {          // data 定义div中的变量
+                message: 'Hello Vue!',
+                title: 'hello'
+            }
+        })
+    </script>
+
+</body>
+</html>

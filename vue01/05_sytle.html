@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--  style绑定  -->
+    <div v-bind:style="{color:fontColor,fontSize:fontSize}">{{message}}</div>
+    <div v-bind:style="styleObject">{{message}}</div>
+    <!--  style绑定 计算属性  -->
+    <div v-bind:style="styleComputed">{{message}}</div>
+
+
+    <br>
+
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello world',
+            fontColor: 'red',
+            fontSize: '30px',
+
+            styleObject:{
+                color: 'red',
+                fontSize: '30px'
+            }
+        },
+        computed:{
+            // 计算属性返回一个对象用作class
+            styleComputed(){
+                return {
+                    color: this.fontColor,
+                    fontSize: this.fontSize
+                }
+            }
+        }
+    })
+</script>
+<style>
+    .mydiv1{
+        color: red;
+    }
+    .mydiv2{
+        font-size: 30px;
+    }
+</style>
+</body>
+</html>
